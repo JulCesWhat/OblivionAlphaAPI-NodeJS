@@ -8,259 +8,139 @@ var app = express();
 var port = process.env.PORT || 3000;
 
 
-const data = [
-    {
-      Position: 0,
-      Type: 'Business',
-      Country: 'United States of America',
-      NewsItems: [
-        {
-          Title: 'Proin rhoncus consequat nisl eu ornare mauris',
-          Img: 'featured_img1.jpg',
-          Content: 'Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...',
-          Time: '10:00 am',
-          Link: 'single_page.html',
-          Position: 1
-        },
-        {
-          Title: 'Aliquam malesuada diam eget turpis varius 1',
-          Img: 'post_img1.jpg',
-          Content: 'Capivara estuvo aqui. :)',
-          Time: '7:00 am',
-          Link: 'single_page.html',
-          Position: 2
-        },
-        {
-          Title: 'Proin rhoncus consequat nisl eu ornare mauris',
-          Img: 'featured_img1.jpg',
-          Content: 'Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...',
-          Time: '10:00 am',
-          Link: 'single_page.html',
-          Position: 3
-        },
-        {
-          Title: 'Aliquam malesuada diam eget turpis varius 1',
-          Img: 'post_img1.jpg',
-          Content: 'Capivara estuvo aqui. :)',
-          Time: '7:00 am',
-          Link: 'single_page.html',
-          Position: 4
-        }
-      ]
-    },
-    {
-      Position: 1,
-      Type: 'Fashion',
-      Country: 'United States of America',
-      NewsItems: [
-        {
-          Title: 'Proin rhoncus consequat nisl eu ornare mauris',
-          Img: 'featured_img1.jpg',
-          Content: 'Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...',
-          Time: '10:00 am',
-          Link: 'single_page.html',
-          Position: 1
-        },
-        {
-          Title: 'Aliquam malesuada diam eget turpis varius 1',
-          Img: 'post_img1.jpg',
-          Content: 'Capivara estuvo aqui. :)',
-          Time: '7:00 am',
-          Link: 'single_page.html',
-          Position: 2
-        },
-        {
-          Title: 'Proin rhoncus consequat nisl eu ornare mauris',
-          Img: 'featured_img1.jpg',
-          Content: 'Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...',
-          Time: '10:00 am',
-          Link: 'single_page.html',
-          Position: 3
-        },
-        {
-          Title: 'Aliquam malesuada diam eget turpis varius 1',
-          Img: 'post_img1.jpg',
-          Content: 'Capivara estuvo aqui. :)',
-          Time: '7:00 am',
-          Link: 'single_page.html',
-          Position: 4
-        }
-      ]
-    },
-    {
-      Position: 2,
-      Type: 'Technology',
-      Country: 'United States of America',
-      NewsItems: [
-        {
-          Title: 'Proin rhoncus consequat nisl eu ornare mauris',
-          Img: 'featured_img1.jpg',
-          Content: 'Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...',
-          Time: '10:00 am',
-          Link: 'single_page.html',
-          Position: 1,
-        },
-        {
-          Title: 'Aliquam malesuada diam eget turpis varius 1',
-          Img: 'post_img1.jpg',
-          Content: 'Capivara estuvo aqui. :)',
-          Time: '7:00 am',
-          Link: 'single_page.html',
-          Position: 2,
-        },
-        {
-          Title: 'Proin rhoncus consequat nisl eu ornare mauris',
-          Img: 'featured_img1.jpg',
-          Content: 'Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...',
-          Time: '10:00 am',
-          Link: 'single_page.html',
-          Position: 3,
-        },
-        {
-          Title: 'Aliquam malesuada diam eget turpis varius 1',
-          Img: 'post_img1.jpg',
-          Content: 'Capivara estuvo aqui. :)',
-          Time: '7:00 am',
-          Link: 'single_page.html',
-          Position: 4,
-        }
-      ]
-    },
-    {
-      Position: 3,
-      Type: 'Photography',
-      Country: 'United States of America',
-      NewsItems: [
-        {
-          Title: 'Proin rhoncus consequat nisl eu ornare mauris',
-          Img: 'featured_img1.jpg',
-          Content: 'Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...',
-          Time: '10:00 am',
-          Link: 'single_page.html',
-          Position: 1,
-        },
-        {
-          Title: 'Aliquam malesuada diam eget turpis varius 1',
-          Img: 'post_img1.jpg',
-          Content: 'Capivara estuvo aqui. :)',
-          Time: '7:00 am',
-          Link: 'single_page.html',
-          Position: 2,
-        },
-        {
-          Title: 'Proin rhoncus consequat nisl eu ornare mauris',
-          Img: 'featured_img1.jpg',
-          Content: 'Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...',
-          Time: '10:00 am',
-          Link: 'single_page.html',
-          Position: 3,
-        },
-        {
-          Title: 'Aliquam malesuada diam eget turpis varius 1',
-          Img: 'post_img1.jpg',
-          Content: 'Capivara estuvo aqui. :)',
-          Time: '7:00 am',
-          Link: 'single_page.html',
-          Position: 4,
-        }
-      ]
-    },
-    {
-      Position: 4,
-      Type: 'Games',
-      Country: 'United States of America',
-      NewsItems: [
-        {
-          Title: 'Proin rhoncus consequat nisl eu ornare mauris',
-          Img: 'featured_img1.jpg',
-          Content: 'Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...',
-          Time: '10:00 am',
-          Link: 'single_page.html',
-          Position: 1,
-        },
-        {
-          Title: 'Aliquam malesuada diam eget turpis varius 1',
-          Img: 'post_img1.jpg',
-          Content: 'Capivara estuvo aqui. :)',
-          Time: '7:00 am',
-          Link: 'single_page.html',
-          Position: 2,
-        },
-        {
-          Title: 'Proin rhoncus consequat nisl eu ornare mauris',
-          Img: 'featured_img1.jpg',
-          Content: 'Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...',
-          Time: '10:00 am',
-          Link: 'single_page.html',
-          Position: 3,
-        },
-        {
-          Title: 'Aliquam malesuada diam eget turpis varius 1',
-          Img: 'post_img1.jpg',
-          Content: 'Capivara estuvo aqui. :)',
-          Time: '7:00 am',
-          Link: 'single_page.html',
-          Position: 4,
-        }
-      ]
-    }
-  ]
+
 
 app.use(cors());
 
-var req = request('http://feeds.feedburner.com/breitbart?format=xml')
-var feedparser = new FeedParser([]);
+var req1 = request('http://feeds.feedburner.com/breitbart?format=xml');
+var feedparser1 = new FeedParser([]);
 
-req.on('error', function (error) {
+req1.on('error', function (error) {
   // handle any request errors
-  console.log("Error on the request!!!!");
-  console.log("Error on the request!!!!");
-  console.log("Error on the request!!!!");
-  console.log(feedItems)
-  console.log("Error on the request!!!!");
-  console.log("Error on the request!!!!");
+  console.log('Error: -> ' + error);
 });
 
-req.on('response', function (res) {
+req1.on('response', function (res) {
   var stream = this; // `this` is `req`, which is a stream
 
   if (res.statusCode !== 200) {
     this.emit('error', new Error('Bad status code'));
   }
   else {
-    stream.pipe(feedparser);
-    console.log('This is running???');
+    stream.pipe(feedparser1);
+    console.log('***********THE RESPONSE HANDLER!!!***********');
   }
 });
 
-feedparser.on('error', function (error) {
+feedparser1.on('error', function (error) {
   // always handle errors
-  console.log('Error on the on section for reading !!!!');
-    console.log('Error on the on section for reading !!!!');
-      console.log(feedItems)
-      console.log('Error on the on section for reading !!!!');
-        console.log('Error on the on section for reading !!!!');
+  console.log('Error: -> ' + error);
 
 });
 
-feedparser.on('readable', function () {
+var runningNum1 = 0;
+
+var NewsCategory1 = {
+  Position: 1,
+  Type: "InforWars",
+  Country: "USA",
+  NewsItems: []
+}
+
+
+feedparser1.on('readable', function () {
   // This is where the action is!
   var stream = this; // `this` is `feedparser`, which is a stream
   var meta = this.meta; // **NOTE** the "meta" is always available in the context of the feedparser instance
   var item;
 
   while (item = stream.read()) {
-    //console.log(item);
+
+    var newsItems = {
+      Title: item.title,
+      Img: item.image,
+      Content: item.summary,
+      Time: item.date,
+      Link: item.link,
+      Position: (runningNum1 + 1).toString()
+    }
+
+    NewsCategory1.NewsItems.push(newsItems);
+    //console.log("Next loop starts here of RSS 1\n\n");
+    runningNum1++;
+  }
+
+});
+
+
+var req2 = request('http://feeds.feedburner.com/breitbart?format=xml');
+var feedparser2 = new FeedParser([]);
+
+req2.on('error', function (error) {
+  // handle any request errors
+  console.log('Error: -> ' + error);
+});
+
+req2.on('response', function (res) {
+  var stream = this; // `this` is `req`, which is a stream
+
+  if (res.statusCode !== 200) {
+    this.emit('error', new Error('Bad status code'));
+  }
+  else {
+    stream.pipe(feedparser2);
+    console.log('***********THE RESPONSE HANDLER!!!***********');
+  }
+});
+
+feedparser2.on('error', function (error) {
+  // always handle errors
+  console.log('Error: -> ' + error);
+
+});
+
+var runningNum2 = 0;
+
+var NewsCategory2 = {
+  Position: 2,
+  Type: "InforWars",
+  Country: "USA",
+  NewsItems: []
+}
+
+feedparser2.on('readable', function () {
+  // This is where the action is!
+  var stream = this; // `this` is `feedparser`, which is a stream
+  var meta = this.meta; // **NOTE** the "meta" is always available in the context of the feedparser instance
+  var item;
+
+  while (item = stream.read()) {
+
+    var newsItems = {
+      Title: item.title,
+      Img: item.image,
+      Content: item.summary,
+      Time: item.date,
+      link: item.link,
+      Position: (runningNum2 + 1).toString()
+    }
+    NewsCategory2.NewsItems.push(newsItems);
+
+    //console.log("Next loop starts here of RRS 2\n\n");
+    runningNum2++;
   }
 
 });
 
 
 
-
 app.get('/newsGalore', function(req, res){
+  var data1 = [];
+  data1.push(NewsCategory1);
+  data1.push(NewsCategory2);
+
   console.log("\n\nRequesting data...:)\n\n");
-  res.json(data);
+  res.json(data1);
 
 });
 
