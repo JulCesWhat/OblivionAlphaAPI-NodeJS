@@ -41,8 +41,8 @@ feedparser1.on('error', function (error) {
 var runningNum1 = 0;
 
 var NewsCategory1 = {
-  Position: 1,
-  Type: "InforWars",
+  Position: 0,
+  Type: "Breitbart",
   Country: "USA",
   NewsItems: []
 }
@@ -56,10 +56,21 @@ feedparser1.on('readable', function () {
 
   while (item = stream.read()) {
 
+
+    var dataImput = '';
+    var summary = (item.summary).toString();
+    //console.log('Initial: \n' + summary + '\n');
+    var sumContent = summary.split("<br />");
+    if(sumContent.length){
+      var dataSection = sumContent[1].split('<img');
+      dataImput = dataSection[0];
+    }
+
+
     var newsItems = {
       Title: item.title,
-      Img: item.image,
-      Content: item.summary,
+      Img: item.enclosures[0].url,
+      Content: dataImput,//item.summary,
       Time: item.date,
       Link: item.link,
       Position: (runningNum1 + 1).toString()
@@ -73,7 +84,7 @@ feedparser1.on('readable', function () {
 });
 
 
-var req2 = request('http://feeds.feedburner.com/breitbart?format=xml');
+var req2 = request('http://www.asiatoday.com/event/rss.xml');
 var feedparser2 = new FeedParser([]);
 
 req2.on('error', function (error) {
@@ -102,8 +113,8 @@ feedparser2.on('error', function (error) {
 var runningNum2 = 0;
 
 var NewsCategory2 = {
-  Position: 2,
-  Type: "InforWars",
+  Position: 1,
+  Type: "Fox News",
   Country: "USA",
   NewsItems: []
 }
@@ -116,10 +127,19 @@ feedparser2.on('readable', function () {
 
   while (item = stream.read()) {
 
+    //console.log('Parsed: \n' + dataImput + '\n');
+    var data = '';
+    if(item.enclosures.length){
+      console.log(item.enclosures);
+      data = item.enclosures[0].url;
+    }
+
+    console.log(item);
+
     var newsItems = {
       Title: item.title,
-      Img: item.image,
-      Content: item.summary,
+      Img: data,
+      Content: item.description,
       Time: item.date,
       link: item.link,
       Position: (runningNum2 + 1).toString()
@@ -129,6 +149,8 @@ feedparser2.on('readable', function () {
     //console.log("Next loop starts here of RRS 2\n\n");
     runningNum2++;
   }
+  //console.log(JSON.stringify(capi));
+  //console.log("\n***************\n")
 
 });
 
