@@ -130,11 +130,11 @@ feedparser2.on('readable', function () {
     //console.log('Parsed: \n' + dataImput + '\n');
     var data = '';
     if(item.enclosures.length){
-      console.log(item.enclosures);
+      //console.log(item.enclosures);
       data = item.enclosures[0].url;
     }
 
-    console.log(item);
+    //console.log(item);
 
     var newsItems = {
       Title: item.title,
@@ -149,8 +149,7 @@ feedparser2.on('readable', function () {
     //console.log("Next loop starts here of RRS 2\n\n");
     runningNum2++;
   }
-  //console.log(JSON.stringify(capi));
-  //console.log("\n***************\n")
+
 
 });
 
