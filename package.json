@@ -4,7 +4,7 @@
   "description": "The back end for the oblivion alpha app",
   "main": "app.js",
   "scripts": {
-    "start": "grunt watch",
+    "start": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Whatley Bros",
