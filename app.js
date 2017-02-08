@@ -151,8 +151,7 @@ feedparser2.on('readable', function () {
     //console.log("Next loop starts here of RRS 2\n\n");
     runningNum2++;
   }
-
-
+  
 });
 
 
