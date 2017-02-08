@@ -41,12 +41,13 @@ feedparser1.on('error', function (error) {
 var runningNum1 = 0;
 
 var NewsCategory1 = {
-  Position: 0,
+  Category: "Breitbart",
   Type: "Breitbart",
   Country: "USA",
   NewsItems: []
 }
 
+var newsItemsTry = null;
 
 feedparser1.on('readable', function () {
   // This is where the action is!
@@ -79,6 +80,7 @@ feedparser1.on('readable', function () {
     NewsCategory1.NewsItems.push(newsItems);
     //console.log("Next loop starts here of RSS 1\n\n");
     runningNum1++;
+    newsItemsTry = newsItems;
   }
 
 });
@@ -113,7 +115,7 @@ feedparser2.on('error', function (error) {
 var runningNum2 = 0;
 
 var NewsCategory2 = {
-  Position: 1,
+  Category: "AsiaToday",
   Type: "Fox News",
   Country: "USA",
   NewsItems: []
@@ -163,6 +165,17 @@ app.get('/newsGalore', function(req, res){
   console.log("\n\nRequesting data...:)\n\n");
   res.json(data1);
 
+});
+
+//'/users/:userId/books/:bookId', function (req, res) {
+app.get('/newsGalore/:category', function(req, res){
+  console.log("Got the category request");
+  res.json(NewsCategory1);
+});
+
+app.get('/newsGalore/:category/:article', function(req, res){
+  console.log("Got the category and article request");
+  res.json(newsItemsTry);
 });
 
 app.listen(port, function(){
