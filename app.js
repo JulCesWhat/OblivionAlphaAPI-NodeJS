@@ -74,7 +74,7 @@ feedparser1.on('readable', function () {
       Content: dataImput,//item.summary,
       Time: item.date,
       Link: item.link,
-      Position: (runningNum1 + 1).toString()
+      Position: (runningNum1).toString()
     }
 
     NewsCategory1.NewsItems.push(newsItems);
@@ -143,8 +143,8 @@ feedparser2.on('readable', function () {
       Img: data,
       Content: item.description,
       Time: item.date,
-      link: item.link,
-      Position: (runningNum2 + 1).toString()
+      Link: item.link,
+      Position: (runningNum2).toString()
     }
     NewsCategory2.NewsItems.push(newsItems);
 
