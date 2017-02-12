@@ -161,6 +161,7 @@ var dataToPass = {
 
 app.get('/newsGalore', function(req, res){
   dataToPass.CategoryObjects.push(NewsCategory1);
+  dataToPass.CategoryObjects.push(NewsCategory2);
 
   console.log("\n\nRequesting data...:)\n\n");
   res.json(dataToPass);
