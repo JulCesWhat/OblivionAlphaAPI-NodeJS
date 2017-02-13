@@ -151,18 +151,20 @@ feedparser2.on('readable', function () {
     //console.log("Next loop starts here of RRS 2\n\n");
     runningNum2++;
   }
-  
+
 });
 
-
+var dataToPass = {
+  Categories: ["Sports", "Fashion", "Business", "Technology", "Games", "Life &amp; Style", "Photography" ],
+  CategoryObjects: []
+}
 
 app.get('/newsGalore', function(req, res){
-  var data1 = [];
-  data1.push(NewsCategory1);
-  data1.push(NewsCategory2);
+  dataToPass.CategoryObjects.push(NewsCategory1);
+  dataToPass.CategoryObjects.push(NewsCategory2);
 
   console.log("\n\nRequesting data...:)\n\n");
-  res.json(data1);
+  res.json(dataToPass);
 
 });
 
