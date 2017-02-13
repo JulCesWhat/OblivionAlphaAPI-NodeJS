@@ -69,6 +69,7 @@ feedparser1.on('readable', function () {
 
 
     var newsItems = {
+      Category: "Breitbart",
       Title: item.title,
       Img: item.enclosures[0].url,
       Content: dataImput,//item.summary,
@@ -139,6 +140,7 @@ feedparser2.on('readable', function () {
     //console.log(item);
 
     var newsItems = {
+      Category: "AsiaToday",
       Title: item.title,
       Img: data,
       Content: item.description,
@@ -155,7 +157,7 @@ feedparser2.on('readable', function () {
 });
 
 var dataToPass = {
-  Categories: ["Sports", "Fashion", "Business", "Technology", "Games", "Life &amp; Style", "Photography" ],
+  Categories: ["Sports", "Fashion", "Business", "Technology", "Games", "Life & Style", "Photography" ],
   CategoryObjects: []
 }
 
@@ -171,6 +173,7 @@ app.get('/newsGalore', function(req, res){
 //'/users/:userId/books/:bookId', function (req, res) {
 app.get('/newsGalore/:category', function(req, res){
   console.log("Got the category request");
+  console.log(NewsCategory1.Type)
   res.json(NewsCategory1);
 });
 
