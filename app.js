@@ -173,12 +173,13 @@ app.get('/newsGalore', function(req, res){
 //'/users/:userId/books/:bookId', function (req, res) {
 app.get('/newsGalore/:category', function(req, res){
   console.log("Got the category request");
-  console.log(NewsCategory1.Type)
+
   res.json(NewsCategory1);
 });
 
 app.get('/newsGalore/:category/:article', function(req, res){
   console.log("Got the category and article request");
+
   res.json(newsItemsTry);
 });
 
