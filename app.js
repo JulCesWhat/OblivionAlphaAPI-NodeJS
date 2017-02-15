@@ -78,7 +78,10 @@ feedparser1.on('readable', function () {
       Position: (runningNum1).toString()
     }
 
-    NewsCategory1.NewsItems.push(newsItems);
+    if(NewsCategory1.NewsItems.length < 6) {
+      NewsCategory1.NewsItems.push(newsItems);
+    }
+
     //console.log("Next loop starts here of RSS 1\n\n");
     runningNum1++;
     newsItemsTry = newsItems;
@@ -148,6 +151,7 @@ feedparser2.on('readable', function () {
       Link: item.link,
       Position: (runningNum2).toString()
     }
+
     NewsCategory2.NewsItems.push(newsItems);
 
     //console.log("Next loop starts here of RRS 2\n\n");
@@ -156,29 +160,28 @@ feedparser2.on('readable', function () {
 
 });
 
-var dataToPass = {
-  Categories: ["Sports", "Fashion", "Business", "Technology", "Games", "Life & Style", "Photography" ],
-  CategoryObjects: []
-}
+
 
 app.get('/newsGalore', function(req, res){
-  dataToPass.CategoryObjects.push(NewsCategory1);
-  dataToPass.CategoryObjects.push(NewsCategory2);
+  var dataToPass = {
+    Categories: ["Sports", "Fashion", "Business", "Technology", "Games", "Life & Style", "Photography" ],
+    CategoryObjects: [NewsCategory1, [NewsCategory1, NewsCategory1], NewsCategory1, NewsCategory1]
+  }
 
-  console.log("\n\nRequesting data...:)\n\n");
+  console.log("\nGETTING THE REQUEST FOR THE DATA FOR THE BODY OF THE MAIN PAGE.\n");
   res.json(dataToPass);
 
 });
 
 //'/users/:userId/books/:bookId', function (req, res) {
 app.get('/newsGalore/:category', function(req, res){
-  console.log("Got the category request");
+  console.log("\nGETTING THE REQUEST FOR A GROUP OF ARTICLES (CATEGORY).\n");
 
   res.json(NewsCategory1);
 });
 
 app.get('/newsGalore/:category/:article', function(req, res){
-  console.log("Got the category and article request");
+  console.log("\nGETTING THE REQUEST FOR AN SPECIFIC ARTICLE.\n");
 
   res.json(newsItemsTry);
 });
