@@ -5,7 +5,7 @@ const mongoose = require('mongoose'),
 const INewsCategorySchema = new Schema({
   Category   : { type : String, required: true, trim: true },
   Articles    : [ INewsArticle.schema ],
-  ArticlesCount : Number
+  ArticlesCount : Number,
 });
 
 module.exports = mongoose.model('INewsCategory', INewsCategorySchema, 'INewsCategories');
