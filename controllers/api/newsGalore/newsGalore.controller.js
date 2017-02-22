@@ -18,7 +18,11 @@ class NewsGaloreController {
                 res.json(null);
             } else {
                 console.log('*** getNewsCategories ok');
-                res.json(data.categories);
+
+                res.json({
+                  Categories : data.category,
+                  CategoryObjects : data.structuredNewsCategory
+                });
             }
         });
     }

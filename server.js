@@ -9,6 +9,7 @@ const express       = require('express'),
     router          = require('./routes/router'),
     database        = require('./lib/database'),
     seeder          = require('./lib/dbSeeder'),
+    feedparser      = require('./lib/feedParser'),
     app             = express(),
     port            = 3000;
 
@@ -19,6 +20,7 @@ class Server {
         this.initExpressMiddleWare();
         this.initCustomMiddleware();
         this.initDbSeeder();
+        //this.initFeedParser();
         this.initRoutes();
         this.start();
     }
@@ -85,8 +87,13 @@ class Server {
             //if (process.env.NODE_ENV === 'development') {
             //  seeder.init();
             //}
-            seeder.init();
+            //seeder.init();
+            feedparser.init();
         });
+    }
+
+    initFeedParser() {
+      feedparser.init();
     }
 
     initRoutes() {
