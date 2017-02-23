@@ -1,4 +1,5 @@
 const express       = require('express'),
+    cors            = require('cors'),
     bodyParser      = require('body-parser'),
     cookieParser    = require('cookie-parser'),
     errorhandler    = require('errorhandler'),
@@ -51,6 +52,9 @@ class Server {
         app.use(cookieParser());
         app.use(csrf({ cookie: true }));
 
+        //Adding this here
+        app.use(cors());
+
         app.use((req, res, next) => {
             var csrfToken = req.csrfToken();
             res.locals._csrf = csrfToken;
@@ -92,9 +96,9 @@ class Server {
         });
     }
 
-    initFeedParser() {
-      feedparser.init();
-    }
+    //initFeedParser() {
+      //feedparser.init();
+    //}
 
     initRoutes() {
         router.load(app, './controllers');

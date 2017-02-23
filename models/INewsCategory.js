@@ -4,7 +4,7 @@ const mongoose = require('mongoose'),
 
 const INewsCategorySchema = new Schema({
   Category   : { type : String, required: true, trim: true },
-  Articles    : [ INewsArticle.schema ],
+  NewsItems    : [ INewsArticle.schema ],
   ArticlesCount : Number,
 });
 
