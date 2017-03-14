@@ -2,7 +2,7 @@
   "name": "oblivion-alpha-api",
   "version": "1.0.0",
   "description": "The back end for the oblivion alpha app",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "start": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,14 +13,13 @@
     "cors": "^2.8.1",
     "express": "^4.14.1",
     "feedparser": "^2.1.0",
+    "glob": "^7.1.1",
     "mongoose": "^4.8.3",
     "request": "^2.79.0"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
-    "grunt-cli": "^1.2.0",
-    "grunt-contrib-jshint": "^1.1.0",
-    "grunt-contrib-watch": "^1.0.0",
+    "jest": "^19.0.2",
     "nodemon": "^1.11.0"
   },
   "repository": {
