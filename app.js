@@ -16,7 +16,7 @@ var resources = glob.sync('./src/*/index.js')
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use('/api/v1/', resources);
+app.use('/api/', resources);
 
 app.use((req, res, next) => {
   var err = new Error('Not Found');
