@@ -1,14 +1,14 @@
 
 
-const database = require('../../lib/database/NEdatabase');
+var INewsCategory = require('../../lib/database/mongoDB');
 
-module.exports = (categoryID) =>
+module.exports = () =>
   new Promise((resolve, reject) => {
-    database.findOne({ _id: categoryID }, (err, user) => {
+    INewsCategory.find((err, categories) => {
       if (err) {
         reject(err);
       } else {
-        resolve(user);
+        resolve(categories);
       }
     });
   });

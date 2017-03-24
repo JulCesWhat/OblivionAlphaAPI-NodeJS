@@ -2,14 +2,13 @@
 
 var INewsCategory = require('../../lib/database/mongoDB');
 
-module.exports = (categoryID, articleID) =>
+module.exports = (categoryID, iNewsArticle) =>
   new Promise((resolve, reject) => {
     INewsCategory.findById(categoryID, (err, category) => {
       if (err) {
         reject(err);
       } else {
-
-        category.findById(articleID, function(err, article) {
+        category.INewsArticles.save(function (err, product, article) {
           if (err) {
             reject(err);
           } else {

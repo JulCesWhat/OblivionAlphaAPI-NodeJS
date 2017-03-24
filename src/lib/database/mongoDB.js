@@ -2,16 +2,19 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var INewsArticle = new Schema({
-    title: String,
-    img: String,
-    content: String,
-    url: String,
-    date: { type: Date },
-    country: String,
-    company: String
+    Title: String,
+    Img: String,
+    Content: String,
+    Url: String,
+    Date: { type: Date },
+    Country: String,
+    Company: String
 });
 
 var INewsCategory = new Schema({
-    type: { type: String },
-    newsArticles: [ INewsArticle ]
+    Type: { type: String },
+    INewsArticles: [ INewsArticle ]
 });
+
+// Export model...
+module.exports = mongoose.model('INewsCategory', INewsCategory);
