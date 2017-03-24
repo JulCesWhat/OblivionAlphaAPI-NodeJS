@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const dataBase = require('src/database/mongoDB')
 
 const IP = "1.1.1.1";
 const PORT = 3000
@@ -9,6 +10,7 @@ const PORT = 3000
 const glob = require('glob');
 
 app.disable('x-powered-by');
+database.open(() => {})
 
 var resources = glob.sync('./src/*/index.js')
   .map(ep => require(ep));

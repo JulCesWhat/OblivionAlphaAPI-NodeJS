@@ -7,8 +7,6 @@ const getCategoriesCtrl = require('./controllers/getCategories');
 
 const router = express.Router();
 
-const validateUser = require('../lib/validate-user-body');
-
 router.get('/:categoryID/:articleID', getArticleCtrl);
 router.get('/:categoryID', getCategoryCtrl);
 router.get('/', getCategoriesCtrl);

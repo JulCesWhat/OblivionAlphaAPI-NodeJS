@@ -1,4 +1,4 @@
-findArticles
+
 
 const findCategory = require('../services/find-category');
 

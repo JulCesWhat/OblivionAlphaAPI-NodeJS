@@ -1,6 +1,6 @@
 
 
-var INewsCategory = require('../../lib/database/mongoDB');
+var INewsCategory = require('../../lib/models/INewsCategory');
 
 module.exports = (iNewsCategory) =>
   new Promise((resolve, reject) => {

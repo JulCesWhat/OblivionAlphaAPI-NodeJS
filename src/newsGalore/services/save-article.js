@@ -1,6 +1,7 @@
 
 
-var INewsCategory = require('../../lib/database/mongoDB');
+var INewsCategory = require('../../lib/models/INewsCategory');
+var INewsArticle = require('../../lib/models/INewsArticle');
 
 module.exports = (categoryID, iNewsArticle) =>
   new Promise((resolve, reject) => {
@@ -8,7 +9,14 @@ module.exports = (categoryID, iNewsArticle) =>
       if (err) {
         reject(err);
       } else {
-        category.INewsArticles.save(function (err, product, article) {
+
+        var entry = new INewsArticle({
+
+        })
+
+        category.INewsArticles.add(entry);
+        
+        category.save(function (err, product, article) {
           if (err) {
             reject(err);
           } else {
