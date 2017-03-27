@@ -2,7 +2,13 @@
 
 const findCategories = require('../services/find-categories');
 
-module.exports = (req, res, next) =>
-  findCategories()
-    .then(users => res.send(users.string))
-    .catch(next);
+module.exports = (req, res, next) =>{
+
+    return findCategories()
+            .then(data => 
+                res.json({
+                    Categories : data.category,
+                    CategoryObjects : data.structuredNewsCategory
+            }))
+            .catch(next);
+}

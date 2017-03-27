@@ -8,14 +8,13 @@ module.exports = (categoryID, articleID) =>
       if (err) {
         reject(err);
       } else {
+        var article = category.NewsItems.id(articleID);
 
-        category.findById(articleID, function(err, article) {
-          if (err) {
-            reject(err);
-          } else {
-            resolve(article);
-          }
-        });
+        if(!article) {
+          return reject(new Error("Value could not be found. Most likely the articleID is invalid. :)"));
+        }
+        
+        resolve(article);
       }
     });
   });
