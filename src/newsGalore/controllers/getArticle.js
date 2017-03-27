@@ -7,6 +7,6 @@ module.exports = (req, res, next) => {
   const articleID = req.params.articleID;
 
   return  findArticle(categoryID, articleID)
-            .then(users => res.send(users.string))
+            .then(article => res.send(article))
             .catch(next);
 }

@@ -12,6 +12,7 @@
   "dependencies": {
     "aws-sdk": "^2.28.0",
     "bluebird": "^3.5.0",
+    "body-parser": "^1.17.1",
     "cors": "^2.8.1",
     "express": "^4.14.1",
     "feedparser": "^2.1.0",
