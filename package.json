@@ -18,6 +18,7 @@
     "feedparser": "^2.1.0",
     "glob": "^7.1.1",
     "mongoose": "^4.9.1",
+    "morgan": "^1.8.1",
     "nedb": "^1.8.0",
     "request": "^2.79.0"
   },
