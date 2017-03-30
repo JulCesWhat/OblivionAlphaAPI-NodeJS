@@ -8,7 +8,6 @@ module.exports = (req, res, next) =>{
             .then(data => 
                 res.json({
                     Categories : data.category,
-                    CategoryObjects : data.structuredNewsCategory
-            }))
+                    CategoryObjects : data.structuredNewsCategory}))
             .catch(next);
 }
