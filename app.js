@@ -1,11 +1,14 @@
 'use-strict';
-const express       = require('express'),
-      bodyParser    = require('body-parser'),
-      cors          = require('cors'),
-      glob          = require('glob'),
-      morgan        = require('morgan'),
-      dataBase      = require('./src/lib/database/mongoDB'),
-      app           = express();
+const express         = require('express'),
+      bodyParser      = require('body-parser'),
+      cookieParser    = require('cookie-parser'),
+      errorhandler    = require('errorhandler'),
+      csrf            = require('csurf'),
+      cors            = require('cors'),
+      glob            = require('glob'),
+      morgan          = require('morgan'),
+      dataBase        = require('./src/lib/database/mongoDB'),
+      app             = express();
 
 const IP = "1.1.1.1";
 const PORT = 3000
@@ -31,8 +34,23 @@ class Server {
     app.disable('x-powered-by');
     app.use(cors());
     app.use(morgan('dev'));
-    app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
+    app.use(errorhandler());
+    app.use(cookieParser());
+    app.use(csrf({ cookie: true }));
+
+    //I think it has something to do with security. ;) ??
+    app.use((req, res, next) => {
+      var csrfToken = req.csrfToken();
+      res.locals._csrf = csrfToken;
+      res.cookie('XSRF-TOKEN', csrfToken);
+      next();
+    });
+
+    process.on('uncaughtException', (err) => {
+      if (err) console.log(err, err.stack);
+    });
   }
 
   initCustomMiddleware() {
