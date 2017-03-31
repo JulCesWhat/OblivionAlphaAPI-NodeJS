@@ -12,7 +12,7 @@ module.exports = (categoryID, iNewsArticle) =>
 
         var entry = new INewsArticle({
 
-        })
+        });
 
         category.INewsArticles.add(entry);
         
