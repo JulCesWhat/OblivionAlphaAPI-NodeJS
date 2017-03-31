@@ -1,4 +1,5 @@
 'use-strict';
+
 const express         = require('express'),
       bodyParser      = require('body-parser'),
       cookieParser    = require('cookie-parser'),
@@ -10,23 +11,26 @@ const express         = require('express'),
       dataBase        = require('./src/lib/database/mongoDB'),
       app             = express();
 
-const IP = "1.1.1.1";
-const PORT = 3000
+//const IP = "1.1.1.1";
+const PORT = 3000;
 
 
 class Server {
-
+      
   constructor() {
     this.initExpressMiddleWare();
     this.initCustomMiddleware();
     this.initDataBase();
     this.initRoutes();
-    this.start();
   }
 
   start() {
     app.listen(PORT, (err) => {
-      console.log('[%s] Listening on http://localhost:%d', process.env.NODE_ENV, PORT);
+      if (err) {
+        console.log('Error: ' + err);
+      } else {
+        console.log('[%s] Listening on http://localhost:%d', process.env.NODE_ENV, PORT);
+      }
     });
   }
 
@@ -54,11 +58,11 @@ class Server {
   }
 
   initCustomMiddleware() {
-    if (process.platform === "win32") {
-      require("readline").createInterface({
+    if (process.platform === 'win32') {
+      require('readline').createInterface({
         input: process.stdin,
         output: process.stdout
-      }).on("SIGINT", () => {
+      }).on('SIGINT', () => {
         console.log('SIGINT: Closing MongoDB connection');
         dataBase.close();
       });
@@ -72,10 +76,10 @@ class Server {
 
   initDataBase() {
     if (process.env.NODE_ENV === 'development') {
-      dataBase.open((err, sucess) => {
+      dataBase.open((err) => {
         if (err) {
           process.exit(1);
-        }  
+        }
       });
     } else {
       //Here we will connect to DinomoDB or S3 from Amazon Web Services
@@ -94,7 +98,7 @@ class Server {
       next(err);
     });
 
-    app.use((err, req, res, next) => {
+    app.use((err, req, res) => {
       res.status(err.status || 500);
 
       res.json({
@@ -113,3 +117,4 @@ class Server {
 }
 
 var server = new Server();
+server.start();

@@ -10,9 +10,10 @@ module.exports = (categoryID, iNewsArticle) =>
         reject(err);
       } else {
 
+        console.log(iNewsArticle.category); // Did this so that the error can go away
         var entry = new INewsArticle({
 
-        })
+        });
 
         category.INewsArticles.add(entry);
         

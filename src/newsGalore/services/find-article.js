@@ -11,7 +11,7 @@ module.exports = (categoryID, articleID) =>
         var article = category.NewsItems.id(articleID);
 
         if(!article) {
-          return reject(new Error("Value could not be found. Most likely the articleID is invalid. :)"));
+          return reject(new Error('Value could not be found. Most likely the articleID is invalid. :)'));
         }
         
         resolve(article);

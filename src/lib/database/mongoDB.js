@@ -2,7 +2,7 @@
 const mongoose = require('mongoose'),
       dbConfig = require('./configLoader').databaseConfig,
       connectionString = 'mongodb://' + dbConfig.host + '/' + dbConfig.database;
-      mongoose.Promise = require('bluebird')
+      mongoose.Promise = require('bluebird');
 
 let   connection = null;
 

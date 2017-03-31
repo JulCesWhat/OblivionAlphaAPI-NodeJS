@@ -9,4 +9,4 @@ module.exports = (req, res, next) => {
   return  findArticle(categoryID, articleID)
             .then(article => res.json(article))
             .catch(next);
-}
+};
