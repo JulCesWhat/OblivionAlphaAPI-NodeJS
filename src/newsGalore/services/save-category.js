@@ -9,7 +9,7 @@ module.exports = (iNewsCategory) =>
       INewsArticles: iNewsCategory.INewsArticles
     });
 
-    entry.save(function (err, product, numAffected) {
+    entry.save(function (err, product) {
       if(err) {
         reject(err);
       } else {

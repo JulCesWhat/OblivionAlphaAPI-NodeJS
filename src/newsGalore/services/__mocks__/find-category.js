@@ -6,7 +6,7 @@ module.exports = categoryID =>
       reject(new Error('There was an error while retrieving a categoryNews from the dataBase.'));
     } else {
       resolve({ 
-          Category: "Economics",
+          Category: 'Economics',
           NewsItems: [],
           ArticlesCount: 0
        });

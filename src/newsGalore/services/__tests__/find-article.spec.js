@@ -1,6 +1,6 @@
 'use strict';
 
-jest.mock('./../find-article')
+jest.mock('./../find-article');
 const getArticleCtrl = require('../../controllers/getArticle');
 
 describe('src/newsGalore/services/find-article', () => {

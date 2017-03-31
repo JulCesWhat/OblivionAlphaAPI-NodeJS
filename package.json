@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon",
-    "test": "node_modules/.bin/jest --coverage"
+    "test": "eslint app.js src/** && node_modules/.bin/jest --coverage"
   },
   "author": "Whatley Bros",
   "license": "ISC",
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "errorhandler": "^1.5.0",
+    "eslint": "^3.18.0",
     "grunt": "^1.0.1",
     "jest": "^19.0.2",
     "nodemon": "^1.11.0"

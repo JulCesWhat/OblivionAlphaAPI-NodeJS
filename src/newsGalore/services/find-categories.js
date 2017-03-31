@@ -21,7 +21,7 @@ module.exports = () =>
         //randomly fashion so that it can look cool.
         var structuredCategory = [];
         var innerDoublePart = [];
-        console.log(NewsCategory.length + "  length")
+        console.log(NewsCategory.length + '  length');
         for(let i = 0; i < NewsCategory.length; i++){
           if(i === 1) {
             innerDoublePart.push(NewsCategory[i]);

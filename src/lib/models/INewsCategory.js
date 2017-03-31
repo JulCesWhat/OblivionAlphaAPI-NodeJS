@@ -8,4 +8,4 @@ const INewsCategorySchema = new Schema({
   ArticlesCount : Number,
 });
 
-module.exports = mongoose.model('INewsCategory', INewsCategorySchema, "INewsCategories");
+module.exports = mongoose.model('INewsCategory', INewsCategorySchema, 'INewsCategories');
