@@ -90,7 +90,7 @@ class Server {
     var resources = glob.sync('./src/*/index.js')
                         .map(ep => require(ep));
 
-    app.use('/api/newsGalore/', resources);
+    app.use('/api/', resources);
 
     app.use((req, res, next) => {
       var err = new Error('Not Found');

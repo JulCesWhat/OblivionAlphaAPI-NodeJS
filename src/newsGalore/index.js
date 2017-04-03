@@ -7,9 +7,9 @@ const getCategoriesCtrl = require('./controllers/getCategories');
 
 const router = express.Router();
 
-router.get('/:categoryID/:articleID', getArticleCtrl);
-router.get('/:categoryID', getCategoryCtrl);
-router.get('/', getCategoriesCtrl);
+router.get('/newsGalore/:categoryID/:articleID', getArticleCtrl);
+router.get('/newsGalore/:categoryID', getCategoryCtrl);
+router.get('/newsGalore/', getCategoriesCtrl);
 
 
 module.exports = router;
