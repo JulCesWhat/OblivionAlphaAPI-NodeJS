@@ -1,6 +1,6 @@
 // Module dependencies
 const mongoose = require('mongoose'),
-      dbConfig = require('./configLoader').databaseConfig,
+      dbConfig = require('./../configLoader').databaseConfig,
       connectionString = 'mongodb://' + dbConfig.host + '/' + dbConfig.database;
       mongoose.Promise = require('bluebird');
 

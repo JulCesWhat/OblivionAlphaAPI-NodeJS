@@ -1,0 +1,13 @@
+{
+    "databaseConfig": {
+        "host": "localhost",
+        "database": "NewsGaloreManager"
+    },
+    "environmentConfig": {
+        "HOST": "localhost",
+        "PORT": "3000"
+    },
+    "emailConfig": {
+        
+    }
+}

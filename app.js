@@ -8,12 +8,9 @@ const express         = require('express'),
       cors            = require('cors'),
       glob            = require('glob'),
       morgan          = require('morgan'),
+      envConfig        = require('./src/lib/configLoader').environmentConfig,
       dataBase        = require('./src/lib/database/mongoDB'),
       app             = express();
-
-//const IP = "1.1.1.1";
-const PORT = 3000;
-
 
 class Server {
       
@@ -25,11 +22,11 @@ class Server {
   }
 
   start() {
-    app.listen(PORT, (err) => {
+    app.listen(envConfig.PORT, envConfig.HOST, 511, (err) => {
       if (err) {
         console.log('Error: ' + err);
       } else {
-        console.log('[%s] Listening on http://localhost:%d', process.env.NODE_ENV, PORT);
+        console.log('[%s] Listening on htt://%s:%d', process.env.NODE_ENV, envConfig.HOST, envConfig.PORT);
       }
     });
   }
@@ -42,15 +39,15 @@ class Server {
     app.use(bodyParser.json());
     app.use(errorhandler());
     app.use(cookieParser());
-    app.use(csrf({ cookie: true }));
+    //app.use(csrf({ cookie: true }));
 
     //I think it has something to do with security. ;) ??
-    app.use((req, res, next) => {
-      var csrfToken = req.csrfToken();
-      res.locals._csrf = csrfToken;
-      res.cookie('XSRF-TOKEN', csrfToken);
-      next();
-    });
+    //app.use((req, res, next) => {
+      //var csrfToken = req.csrfToken();
+      //res.locals._csrf = csrfToken;
+      //res.cookie('XSRF-TOKEN', csrfToken);
+      //next();
+    //});
 
     process.on('uncaughtException', (err) => {
       if (err) console.log(err, err.stack);
