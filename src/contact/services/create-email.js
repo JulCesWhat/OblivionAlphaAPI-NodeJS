@@ -5,30 +5,38 @@ const emailCheck = require('email-check'),
       mailer    = require('nodemailer'),
       emailConfig  = require('./../../lib/configLoader').emailConfig;
 
-module.exports = contactMsg =>
-  new Promise((resolve, reject) => {
+module.exports = contactMsg => {
+  return new Promise((resolve, reject) => {
+    let emailGroup = contactMsg.emailGroup;
+    console.log(emailGroup.email + "    emial??")
 	//Here we will store in the dB and send it to me :)
-    emailCheck(contactMsg.email)
+    emailCheck(emailGroup.email)
       .then(function (res) {
-        sendEmail(contactMsg)
-          .then(resolve(true))
-          .catch(reject(err));
+        if (res) {
+          //The email exits. :)
+          sendEmail(contactMsg, emailGroup.email)
+            .then(response => resolve(response))
+            .catch(response => reject(response));
+
+        } else {
+          //The email does not exist. :)
+          reject(false);
+        }
       })
       .catch(function(err) {
         if (err.message === 'refuse') {
           // The MX server is refusing requests from your IP address.
-          
-          this.sendEmail(contactMsg)
-            .then(resolve(true))
-            .catch(reject(err));
+          //console.log("Error of refuse  !!!!!!!!!!!!")
+          reject(err);
         } else {
           // Decide what to do with other errors.
+          //console.log("error ... real one!!!!!!!!!!")
           reject(err);
         }
       })
   });
 
-function sendEmail(contactMsg) {
+function sendEmail(contactMsg, email) {
   return new Promise((resolve, reject) => {
     // Use Smtp Protocol to send Email
     var smtpTransport = mailer.createTransport({
@@ -44,20 +52,22 @@ function sendEmail(contactMsg) {
     var mail = {
       from: "Oblivion Alpha FrontEnd <wispersofoblivion@gmail.com>",
       to: "wispersofoblivion@gmail.com",
-      subject: contactMsg.name + " <" + contactMsg.email + ">",
+      subject: contactMsg.name + " <" + email + ">",
       text: contactMsg.message
     }
 
     smtpTransport.sendMail(mail, function(error, response){
       if (error) {
-        console.log(error);
+        //console.log('This is error when trying to send the eamil!!!!!!!!!!!!')
+        //console.log(error);
         smtpTransport.close();
         reject(error);
       } else {
         console.log("Message sent: " + response.message);
         smtpTransport.close();
-        resolve(True);
+        resolve(response);
       }
     });
   });
 };
+}
