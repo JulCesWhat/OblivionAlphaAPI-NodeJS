@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.get('/newsGalore/:categoryID/:articleID', getArticleCtrl);
 router.get('/newsGalore/:categoryID', getCategoryCtrl);
-router.get('/newsGalore/', getCategoriesCtrl);
+router.get('/newsGalore', getCategoriesCtrl);
 
 
 module.exports = router;
