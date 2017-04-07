@@ -4,11 +4,11 @@ const express         = require('express'),
       bodyParser      = require('body-parser'),
       cookieParser    = require('cookie-parser'),
       errorhandler    = require('errorhandler'),
-      csrf            = require('csurf'),
+      //csrf            = require('csurf'),
       cors            = require('cors'),
       glob            = require('glob'),
       morgan          = require('morgan'),
-      envConfig        = require('./src/lib/configLoader').environmentConfig,
+      envConfig       = require('./src/lib/configLoader').environmentConfig,
       dataBase        = require('./src/lib/database/mongoDB'),
       app             = express();
 
