@@ -8,30 +8,27 @@ const emailCheck = require('email-check'),
 module.exports = contactMsg => {
   return new Promise((resolve, reject) => {
     let emailGroup = contactMsg.emailGroup;
-    console.log(emailGroup.email + "    emial??")
-	//Here we will store in the dB and send it to me :)
+
+	  //Here we will store in the dB and send it to me :)
     emailCheck(emailGroup.email)
-      .then(function (res) {
+      .then((res) => {
         if (res) {
           //The email exits. :)
-          sendEmail(contactMsg, emailGroup.email)
-            .then(response => resolve(response))
-            .catch(response => reject(response));
-
+          sendEmail(contactMsg)
+            .then(() => resolve(true))
+            .catch(() => reject(false));
         } else {
           //The email does not exist. :)
           reject(false);
         }
       })
-      .catch(function(err) {
+      .catch((err) =>  {
         if (err.message === 'refuse') {
           // The MX server is refusing requests from your IP address.
-          //console.log("Error of refuse  !!!!!!!!!!!!")
-          reject(err);
+          reject(false);
         } else {
           // Decide what to do with other errors.
-          //console.log("error ... real one!!!!!!!!!!")
-          reject(err);
+          reject(false);
         }
       })
   });
