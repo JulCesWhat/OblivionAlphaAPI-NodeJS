@@ -1,6 +1,7 @@
 
 
-const createEmail = require('../services/create-email');
+const verifyEmail = require('./../services/verify-email'),
+      sendEmail   = require('./../services/send-email');
 
 module.exports = (req, res, next) => {
 
@@ -12,7 +13,8 @@ module.exports = (req, res, next) => {
     return next(err);
   }
 
-  return createEmail(contactMsg)
-    .then(email => res.json(email))
-    .catch(next);
+  return verifyEmail(contactMsg)
+          .then(sendEmail)
+          .then(email => res.json(email))
+          .catch(next);
 };
