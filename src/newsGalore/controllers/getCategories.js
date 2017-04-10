@@ -1,6 +1,6 @@
 
 
-const findCategories = require('../services/find-categories');
+const findCategories = require('./../services/find-categories');
 
 module.exports = (req, res, next) => {
 

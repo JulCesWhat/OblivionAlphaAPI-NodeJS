@@ -1,6 +1,6 @@
 
 
-const findArticle = require('../services/find-article');
+const findArticle = require('./../services/find-article');
 
 module.exports = (req, res, next) => {
   const categoryID = req.params.categoryID;
