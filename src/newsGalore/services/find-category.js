@@ -18,7 +18,7 @@ module.exports = (categoryID) =>
                 let categoryItem = {
                   Name: category.Category,
                   _id: category._id
-                }
+                };
 
                 Categories.push(categoryItem);
               }

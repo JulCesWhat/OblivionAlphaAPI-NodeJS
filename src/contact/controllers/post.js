@@ -6,7 +6,8 @@ const verifyEmail = require('./../services/verify-email'),
 module.exports = (req, res, next) => {
 
   let contactMsg = req.body;
-  if (!req.body) {
+
+  if (!contactMsg.name || !contactMsg.message || !contactMsg.emailGroup) {
     const err = new Error('User can\'t be added because the body is empty.');
     err.status = 400;
     return next(err);
