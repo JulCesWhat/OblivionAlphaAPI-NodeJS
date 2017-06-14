@@ -11,8 +11,8 @@ export class ContactService {
             port: 465,
             secure: true, // use TLS
             auth: {
-                user: "WispersOfOblivion@gmail.com",
-                pass: "W1spers0f0blivion"
+                user: "",
+                pass: ""
             }
         });
 
