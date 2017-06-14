@@ -106,27 +106,12 @@ module.exports = require("mongoose");
 
 /***/ },
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _dotenv = __webpack_require__(24);
-
-var _dotenv2 = _interopRequireDefault(_dotenv);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_dotenv2.default.config();
-
-/***/ },
-/* 4 */
 /***/ function(module, exports) {
 
 module.exports = require("path");
 
 /***/ },
-/* 5 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -136,7 +121,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-__webpack_require__(3);
+__webpack_require__(14);
 
 var _server = __webpack_require__(18);
 
@@ -151,7 +136,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = new _server2.default().router(_routes2.default).listen(process.env.PORT);
 
 /***/ },
-/* 6 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -164,7 +149,7 @@ exports.Controller = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _contact = __webpack_require__(8);
+var _contact = __webpack_require__(7);
 
 var _contact2 = _interopRequireDefault(_contact);
 
@@ -200,7 +185,7 @@ var Controller = exports.Controller = function () {
 exports.default = new Controller();
 
 /***/ },
-/* 7 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -214,7 +199,7 @@ var _express = __webpack_require__(1);
 
 var express = _interopRequireWildcard(_express);
 
-var _controller = __webpack_require__(6);
+var _controller = __webpack_require__(5);
 
 var _controller2 = _interopRequireDefault(_controller);
 
@@ -225,7 +210,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 exports.default = express.Router().post('/', _controller2.default.sendEmail);
 
 /***/ },
-/* 8 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -266,8 +251,8 @@ var ContactService = exports.ContactService = function () {
                 port: 465,
                 secure: true, // use TLS
                 auth: {
-                    user: "WispersOfOblivion@gmail.com",
-                    pass: "W1spers0f0blivion"
+                    user: process.env.EMAIL_USER,
+                    pass: process.env.EMAIL_PASS
                 }
             });
 
@@ -335,7 +320,7 @@ var ContactService = exports.ContactService = function () {
 exports.default = new ContactService();
 
 /***/ },
-/* 9 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -348,7 +333,7 @@ exports.Controller = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _examples = __webpack_require__(11);
+var _examples = __webpack_require__(10);
 
 var _examples2 = _interopRequireDefault(_examples);
 
@@ -390,7 +375,7 @@ var Controller = exports.Controller = function () {
 exports.default = new Controller();
 
 /***/ },
-/* 10 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -404,7 +389,7 @@ var _express = __webpack_require__(1);
 
 var express = _interopRequireWildcard(_express);
 
-var _controller = __webpack_require__(9);
+var _controller = __webpack_require__(8);
 
 var _controller2 = _interopRequireDefault(_controller);
 
@@ -415,7 +400,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 exports.default = express.Router().post('/', _controller2.default.create).get('/', _controller2.default.all).get('/:id', _controller2.default.byId);
 
 /***/ },
-/* 11 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -479,7 +464,7 @@ var ExamplesService = exports.ExamplesService = function () {
 exports.default = new ExamplesService();
 
 /***/ },
-/* 12 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -492,7 +477,7 @@ exports.Controller = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _newsGalore = __webpack_require__(14);
+var _newsGalore = __webpack_require__(13);
 
 var _newsGalore2 = _interopRequireDefault(_newsGalore);
 
@@ -548,7 +533,7 @@ var Controller = exports.Controller = function () {
 exports.default = new Controller();
 
 /***/ },
-/* 13 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -562,7 +547,7 @@ var _express = __webpack_require__(1);
 
 var express = _interopRequireWildcard(_express);
 
-var _controller = __webpack_require__(12);
+var _controller = __webpack_require__(11);
 
 var _controller2 = _interopRequireDefault(_controller);
 
@@ -573,7 +558,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 exports.default = express.Router().get('/:categoryID/:articleID', _controller2.default.findArticle).get('/:categoryID', _controller2.default.findCategory).get('/', _controller2.default.findCategories);
 
 /***/ },
-/* 14 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -812,6 +797,21 @@ var NewsGaloreService = exports.NewsGaloreService = function () {
 exports.default = new NewsGaloreService();
 
 /***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _dotenv = __webpack_require__(24);
+
+var _dotenv2 = _interopRequireDefault(_dotenv);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_dotenv2.default.config();
+
+/***/ },
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -821,14 +821,12 @@ exports.default = new NewsGaloreService();
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.Database = undefined;
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); // Module dependencies
-
-
-__webpack_require__(3);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+// Module dependencies
 
 var mongoose = __webpack_require__(2),
     connectionString = 'mongodb://' + process.env.DBCONFIG_HOST + '/' + process.env.DBCONFIG_DATABASE;
@@ -846,7 +844,6 @@ var Database = exports.Database = function () {
         value: function open(callback) {
             mongoose.connect(connectionString);
             connection = mongoose.connection;
-            //mongoose.Promise = global.Promise;
 
             mongoose.connection.on('error', function (err) {
                 console.log('Error connecting to MongoDB: ' + err);
@@ -937,7 +934,7 @@ var _express = __webpack_require__(1);
 
 var _express2 = _interopRequireDefault(_express);
 
-var _path = __webpack_require__(4);
+var _path = __webpack_require__(3);
 
 var path = _interopRequireWildcard(_path);
 
@@ -1110,7 +1107,7 @@ var _swaggerExpressMiddleware = __webpack_require__(30);
 
 var _swaggerExpressMiddleware2 = _interopRequireDefault(_swaggerExpressMiddleware);
 
-var _path = __webpack_require__(4);
+var _path = __webpack_require__(3);
 
 var path = _interopRequireWildcard(_path);
 
@@ -1131,15 +1128,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = routes;
 
-var _router = __webpack_require__(7);
+var _router = __webpack_require__(6);
 
 var _router2 = _interopRequireDefault(_router);
 
-var _router3 = __webpack_require__(10);
+var _router3 = __webpack_require__(9);
 
 var _router4 = _interopRequireDefault(_router3);
 
-var _router5 = __webpack_require__(13);
+var _router5 = __webpack_require__(12);
 
 var _router6 = _interopRequireDefault(_router5);
 
@@ -1239,7 +1236,7 @@ module.exports = require("swagger-express-middleware");
 /* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(5);
+module.exports = __webpack_require__(4);
 
 
 /***/ }

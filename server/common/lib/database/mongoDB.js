@@ -1,5 +1,5 @@
 // Module dependencies
-import './../../env';
+
 const mongoose = require('mongoose'),
       connectionString = 'mongodb://' + process.env.DBCONFIG_HOST + '/' + process.env.DBCONFIG_DATABASE;
       mongoose.Promise = require('bluebird');
@@ -11,7 +11,6 @@ export class Database {
     open(callback) {
         mongoose.connect(connectionString);
         connection = mongoose.connection;
-        //mongoose.Promise = global.Promise;
 
         mongoose.connection.on('error', (err) => {
             console.log('Error connecting to MongoDB: ' + err);
@@ -22,7 +21,6 @@ export class Database {
             console.log('We have connected to mongodb');
             callback(null, true);
         });
-
     }
 
     // disconnect from database
