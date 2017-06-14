@@ -1,0 +1,164 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: OblivionAlphaAPI
+  description: Oblivion Alpha API
+basePath: /api/v1
+tags:
+  - name: Examples
+    description: Simple example endpoints
+  - name: NewsGalore
+    description: newsGalore endpoints 
+  - name: Contact
+    description: contact endpoint
+  - name: Specification
+    description: The swagger API specification
+
+consumes:
+  - application/json
+produces:
+  - application/json
+
+definitions:
+  ExampleBody:
+    type: object
+    title: example
+    required:
+      - name
+    properties:
+      name:
+        type: string
+        description: The example name
+  ContactBody:
+    type: object
+    title: contact
+    required:
+      - name
+      - email
+      - message
+    properties:
+      name:
+        type: string
+        description: The name of the user
+      email:
+        type: string
+        description: The email of the user
+      message:
+        type: string
+        description: The message of the user
+
+paths:
+  /examples:
+    get:
+      tags:
+        - Examples
+      description: Fetch all examples
+      responses:
+        200:
+          description: Returns all examples
+    post:
+      tags:
+        - Examples
+      description: Create a new example
+      parameters:
+        - name: example
+          in: body
+          description: number of items to skip
+          required: true
+          schema: 
+            $ref: "#/definitions/ExampleBody"
+      responses:
+        200:
+          description: Returns all examples
+
+  /examples/{id}:
+    get:
+      tags:
+        - Examples
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The id of the entity to retrieve
+          type: integer
+      responses:
+        200:
+          description: Return the example with the specified id
+        404:
+          description: Example not 
+
+
+
+  /newsGalore:
+    get:
+      tags:
+        - NewsGalore
+      description: Gets all the iNewsCategory and iNewsArticles fron newsGalore
+      responses:
+        200:
+          description: Returns all iNewsCategory's
+
+  /newsGalore/{categoryID}:
+    get:
+      tags:
+        - NewsGalore
+      parameters:
+        - name: categoryID
+          in: path
+          required: true
+          description: The categoryID of the iNewsCategory to be retrieved
+          type: string
+      responses:
+        200:
+          description: Returns the iNewsCategory with the specified categoryID
+        404:
+          description: iNewsCategory not found
+
+  /newsGalore/{categoryID}/{articleID}:
+    get:
+      tags:
+        - NewsGalore
+      parameters:
+        - name: categoryID
+          in: path
+          required: true
+          description: The categoryID of the iNewsCategory to be retrieved
+          type: string
+        - name: articleID
+          in: path
+          required: true
+          description: The articleID of the iNewsArticle to be retrieved
+          type: string
+      responses:
+        200:
+          description: Returns the iNewsArticle with the specified articleID
+        404:
+          description: iNewsArticle not found
+
+
+
+  /contact:
+    post:
+      tags:
+        - Contact
+      description: Sends an email
+      parameters:
+        - name: contact
+          in: body
+          description: email information
+          required: true
+          schema: 
+            $ref: "#/definitions/ContactBody"
+      responses:
+        200:
+          description: Returns all examples
+      
+
+
+  /spec:
+    get:
+      tags:
+        - Specification
+      responses:
+        200:
+          description: Return the API specification
