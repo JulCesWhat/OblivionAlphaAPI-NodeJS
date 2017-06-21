@@ -13,16 +13,16 @@ const app = new express();
 
 export default class ExpressServer {
   constructor() {
-      const root = path.normalize(__dirname + '/../..');
-      app.disable('x-powered-by');
-      app.set('appPath', root + 'client');
-      app.use(bodyParser.json());
-      app.use(bodyParser.urlencoded({ extended: true }));
-      app.use(cookieParser(process.env.SESSION_SECRET));
-      app.use(express.static(`${root}/public`));
+    const root = path.normalize(__dirname + '/../..');
+    app.disable('x-powered-by');
+    app.set('appPath', root + 'client');
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(cookieParser(process.env.SESSION_SECRET));
+    app.use(express.static(`${root}/public`));
 
-      this.initCustomMiddleware();
-      this.initDataBase();
+    this.initCustomMiddleware();
+    this.initDataBase();
   }
 
   initCustomMiddleware() {
@@ -55,13 +55,13 @@ export default class ExpressServer {
   }
 
   router(routes) {
-      swaggerify(app, routes)
-      return this;
+    swaggerify(app, routes)
+    return this;
   }
 
   listen(port = process.env.PORT) {
-      const welcome = port => () => l.info(`up and running in ${process.env.NODE_ENV || 'development'} @: ${os.hostname() } on port: ${port}}`);
-      http.createServer(app).listen(port, welcome(port));
-      return app;
+    const welcome = port => () => l.info(`up and running in ${process.env.NODE_ENV || 'development'} @: ${os.hostname() } on port: ${port}}`);
+    http.createServer(app).listen(port, welcome(port));
+    return app;
   }
 }
