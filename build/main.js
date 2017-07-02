@@ -710,15 +710,15 @@ class ExpressServer {
   }
 
   initDataBase() {
-    if (true) {
-      __WEBPACK_IMPORTED_MODULE_8__lib_database_mongoDB__["a" /* default */].open(err => {
-        if (err) {
-          process.exit(1);
-        }
-      });
-    } else {
-      //Here we will connect to DinomoDB or S3 from Amazon Web Services
-    }
+    //if (process.env.NODE_ENV === 'development') {
+    __WEBPACK_IMPORTED_MODULE_8__lib_database_mongoDB__["a" /* default */].open(err => {
+      if (err) {
+        process.exit(1);
+      }
+    });
+    //} else {
+    //Here we will connect to DinomoDB or S3 from Amazon Web Services
+    //}
   }
 
   router(routes) {
@@ -727,14 +727,14 @@ class ExpressServer {
   }
 
   listen(port = process.env.PORT) {
-    const welcome = port => () => __WEBPACK_IMPORTED_MODULE_7__logger__["a" /* default */].info(`up and running in ${"development" || 'development'} @: ${__WEBPACK_IMPORTED_MODULE_4_os__["hostname"]()} on port: ${port}}`);
+    const welcome = port => () => __WEBPACK_IMPORTED_MODULE_7__logger__["a" /* default */].info(`up and running in ${"production" || 'development'} @: ${__WEBPACK_IMPORTED_MODULE_4_os__["hostname"]()} on port: ${port}}`);
     __WEBPACK_IMPORTED_MODULE_3_http__["createServer"](app).listen(port, welcome(port));
     return app;
   }
 }
 /* harmony export (immutable) */ exports["a"] = ExpressServer;
 
-/* WEBPACK VAR INJECTION */}.call(exports, "server\\common"))
+/* WEBPACK VAR INJECTION */}.call(exports, "server/common"))
 
 /***/ },
 /* 19 */
@@ -790,7 +790,7 @@ class ExpressServer {
     routes(app);
   });
 };
-/* WEBPACK VAR INJECTION */}.call(exports, "server\\common\\swagger"))
+/* WEBPACK VAR INJECTION */}.call(exports, "server/common/swagger"))
 
 /***/ },
 /* 20 */

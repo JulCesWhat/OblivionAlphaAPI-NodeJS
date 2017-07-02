@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: oblivion-api
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: oblivion-api
+        tier: backend
+        track: stable
+    spec:
+      containers:
+      - name: oblivion-api
+        image: quay.io/julceswhat/oblivionalphaapi
+        ports:
+        - name: oblivion-api
+          containerPort: 3000

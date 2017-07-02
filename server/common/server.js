@@ -43,15 +43,15 @@ export default class ExpressServer {
   }
 
   initDataBase() {
-    if (process.env.NODE_ENV === 'development') {
+    //if (process.env.NODE_ENV === 'development') {
       Database.open((err) => {
         if (err) {
           process.exit(1);
         }
       });
-    } else {
+    //} else {
       //Here we will connect to DinomoDB or S3 from Amazon Web Services
-    }
+    //}
   }
 
   router(routes) {

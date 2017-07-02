@@ -13,5 +13,6 @@
         "**/.hg": true,
         "**/.DS_Store": true,
         "*.log": true
-    }
+    },
+    "editor.fontSize": 18
 }
