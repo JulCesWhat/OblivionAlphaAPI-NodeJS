@@ -7,6 +7,8 @@ import cookieParser from 'cookie-parser';
 import swaggerify from './swagger';
 import l from './logger';
 import Database from './lib/database/mongoDB';
+import Feedparser from './lib/feedparser/feedParser';
+import Promise from 'bluebird';
 
 
 const app = new express();
@@ -23,6 +25,7 @@ export default class ExpressServer {
 
     this.initCustomMiddleware();
     this.initDataBase();
+    this.initFeedParser();
   }
 
   initCustomMiddleware() {
@@ -43,15 +46,48 @@ export default class ExpressServer {
   }
 
   initDataBase() {
-    //if (process.env.NODE_ENV === 'development') {
-      Database.open((err) => {
-        if (err) {
-          process.exit(1);
+      if (process.env.NODE_ENV === 'development') {
+          let connectionString = "mongodb://localhost/NewsGaloreManager";
+          Database.open(connectionString, (err) => {
+              if (err) {
+                process.exit(1);
+              }
+          });
+      } else {
+        //Here we will connect to DinomoDB or S3 from Amazon Web Services
+          let connectionString = "mongodb://Cesar:CesarWhatley@cluster0-shard-00-00-mk80y.mongodb.net:27017,cluster0-shard-00-01-mk80y.mongodb.net:27017,cluster0-shard-00-02-mk80y.mongodb.net:27017/NewsGaloreManager?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin";
+          Database.open(connectionString, (err) => {
+              if (err) {
+                process.exit(1);
+              }
+          });
+      }
+  }
+
+  initFeedParser() {
+    var capi = [
+      "http://feeds.feedburner.com/WiiUDaily",
+      "http://feeds.feedburner.com/Co-optimus",
+      "http://feeds.feedburner.com/makeuseof",
+      "http://feeds.feedblitz.com/Gizmag",
+      "http://feeds.feedburner.com/ubergizmo",    //News
+      "http://feeds.mashable.com/Mashable",   //News
+      "http://feeds.feedburner.com/WallStCheatSheetCore",
+      "http://feeds.feedburner.com/coolsmartphone/uJxV",   //Tech
+      "http://feeds.feedburner.com/coolsmartphone/uJxV",    //Tech
+      "http://feeds.feedburner.com/TheBoyGeniusReport"     //Tech
+    ];
+
+
+    Promise.map(capi, (url) => Feedparser.fetch(url), {concurrency: 10}) // note that concurrency limit
+    .then((feeds) => {
+    // do something with your feeds...
+        for(let i = 0; i < feeds.length; i++) {
+          console.log('***********************')
+          console.log(feeds[i].url);
+          //console.log(feeds[i].records[0]);
         }
-      });
-    //} else {
-      //Here we will connect to DinomoDB or S3 from Amazon Web Services
-    //}
+    });
   }
 
   router(routes) {

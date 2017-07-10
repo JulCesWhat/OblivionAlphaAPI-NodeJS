@@ -65,7 +65,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 31);
+/******/ 	return __webpack_require__(__webpack_require__.s = 34);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,7 +73,7 @@ module.exports =
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pino__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pino__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pino___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_pino__);
 
 const l = __WEBPACK_IMPORTED_MODULE_0_pino___default()({
@@ -93,23 +93,29 @@ module.exports = require("express");
 /* 2 */
 /***/ function(module, exports) {
 
-module.exports = require("mongoose");
+module.exports = require("bluebird");
 
 /***/ },
 /* 3 */
 /***/ function(module, exports) {
 
-module.exports = require("path");
+module.exports = require("mongoose");
 
 /***/ },
 /* 4 */
+/***/ function(module, exports) {
+
+module.exports = require("path");
+
+/***/ },
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_env__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_server__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__routes__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_env__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_server__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__routes__ = __webpack_require__(22);
 
 
 
@@ -117,11 +123,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /* harmony default export */ exports["default"] = new __WEBPACK_IMPORTED_MODULE_1__common_server__["a" /* default */]().router(__WEBPACK_IMPORTED_MODULE_2__routes__["a" /* default */]).listen(process.env.PORT);
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_contact_service__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_contact_service__ = __webpack_require__(8);
 
 
 
@@ -145,13 +151,13 @@ class Controller {
 /* harmony default export */ exports["a"] = new Controller();
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_express__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__controllers_controller__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__controllers_controller__ = __webpack_require__(6);
 
 
 
@@ -159,11 +165,11 @@ class Controller {
 /* harmony default export */ exports["a"] = __WEBPACK_IMPORTED_MODULE_0_express__["Router"]().post('/', __WEBPACK_IMPORTED_MODULE_1__controllers_controller__["a" /* default */].sendEmail);
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_nodemailer__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_nodemailer__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_nodemailer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_nodemailer__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_logger__ = __webpack_require__(0);
 
@@ -246,11 +252,11 @@ class ContactService {
 /* harmony default export */ exports["a"] = new ContactService();
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_examples_service__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_examples_service__ = __webpack_require__(11);
 
 
 
@@ -274,13 +280,13 @@ class Controller {
 /* harmony default export */ exports["a"] = new Controller();
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_express__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__controllers_controller__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__controllers_controller__ = __webpack_require__(9);
 
 
 
@@ -288,7 +294,7 @@ class Controller {
 /* harmony default export */ exports["a"] = __WEBPACK_IMPORTED_MODULE_0_express__["Router"]().post('/', __WEBPACK_IMPORTED_MODULE_1__controllers_controller__["a" /* default */].create).get('/', __WEBPACK_IMPORTED_MODULE_1__controllers_controller__["a" /* default */].all).get('/:id', __WEBPACK_IMPORTED_MODULE_1__controllers_controller__["a" /* default */].byId);
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -328,11 +334,11 @@ class ExamplesService {
 /* harmony default export */ exports["a"] = new ExamplesService();
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_newsGalore_service__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_newsGalore_service__ = __webpack_require__(14);
 
 
 
@@ -369,13 +375,13 @@ class Controller {
 /* harmony default export */ exports["a"] = new Controller();
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_express__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__controllers_controller__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__controllers_controller__ = __webpack_require__(12);
 
 
 
@@ -383,12 +389,12 @@ class Controller {
 /* harmony default export */ exports["a"] = __WEBPACK_IMPORTED_MODULE_0_express__["Router"]().get('/:categoryID/:articleID', __WEBPACK_IMPORTED_MODULE_1__controllers_controller__["a" /* default */].findArticle).get('/:categoryID', __WEBPACK_IMPORTED_MODULE_1__controllers_controller__["a" /* default */].findCategory).get('/', __WEBPACK_IMPORTED_MODULE_1__controllers_controller__["a" /* default */].findCategories);
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_logger__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_lib_models_INewsCategory__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_lib_models_INewsCategory__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_lib_models_INewsCategory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__common_lib_models_INewsCategory__);
 
 
@@ -555,31 +561,30 @@ class NewsGaloreService {
 /* harmony default export */ exports["a"] = new NewsGaloreService();
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_dotenv__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_dotenv__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_dotenv___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_dotenv__);
 
 __WEBPACK_IMPORTED_MODULE_0_dotenv___default.a.config();
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 // Module dependencies
 
-const mongoose = __webpack_require__(2),
-      connectionString = "mongodb://Cesar:CesarWhatley@cluster0-shard-00-00-mk80y.mongodb.net:27017,cluster0-shard-00-01-mk80y.mongodb.net:27017,cluster0-shard-00-02-mk80y.mongodb.net:27017/NewsGaloreManager?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin"; //'mongodb://' + process.env.DBCONFIG_HOST + '/' + process.env.DBCONFIG_DATABASE;
-mongoose.Promise = __webpack_require__(21);
+const mongoose = __webpack_require__(3);
+mongoose.Promise = __webpack_require__(2);
 
 let connection = null;
 
 class Database {
 
-    open(callback) {
+    open(connectionString, callback) {
         mongoose.connect(connectionString);
         connection = mongoose.connection;
 
@@ -609,10 +614,180 @@ class Database {
 /* harmony default export */ exports["a"] = new Database();
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
-const mongoose = __webpack_require__(2),
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_feedparser__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_feedparser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_feedparser__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_bluebird__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_bluebird___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_bluebird__);
+
+
+
+//import requet from 'request';
+
+var request = __webpack_require__(32);
+//var FeedParser = require('feedparser');
+//  , FeedParser = require(__dirname+'/..')
+//  , Iconv = require('iconv').Iconv
+//  , zlib = require('zlib');
+
+
+class Feedparser {
+
+    constructor() {}
+
+    fetch(url) {
+        return new __WEBPACK_IMPORTED_MODULE_1_bluebird___default.a((resolve, reject) => {
+            if (!url) {
+                return reject(new Error(`Bad URL (url: ${url}`));
+            }
+
+            const feedparser = new __WEBPACK_IMPORTED_MODULE_0_feedparser___default.a(),
+                  items = [];
+
+            feedparser.on('error', e => {
+                return reject(e);
+            }).on('readable', () => {
+                // This is where the action is!
+                var item;
+
+                while (item = feedparser.read()) {
+                    items.push(item);
+                }
+            }).on('end', () => {
+                resolve({
+                    meta: feedparser.meta,
+                    records: items,
+                    url: url
+                });
+            });
+
+            request({
+                method: 'GET',
+                url: url
+            }, (e, res, body) => {
+                if (e) {
+                    return reject(e);
+                }
+
+                if (res.statusCode != 200) {
+                    return reject(new Error(`Bad status code (status: ${res.statusCode}, url: ${url})`));
+                }
+
+                feedparser.end(body);
+            });
+        });
+    }
+}
+/* unused harmony export Feedparser */
+
+
+/* harmony default export */ exports["a"] = new Feedparser();
+
+// var request = require('request')
+//   , FeedParser = require(__dirname+'/..')
+//   , Iconv = require('iconv').Iconv
+//   , zlib = require('zlib');
+
+// function fetch(feed) {
+//   // Define our streams
+//   var req = request(feed, {timeout: 10000, pool: false});
+//   req.setMaxListeners(50);
+//   // Some feeds do not respond without user-agent and accept headers.
+//   req.setHeader('user-agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36');
+//   req.setHeader('accept', 'text/html,application/xhtml+xml');
+
+//   var feedparser = new FeedParser();
+
+
+//   // Define our handlers
+//   req.on('error', done);
+//   req.on('response', function(res) {
+//     if (res.statusCode != 200) return this.emit('error', new Error('Bad status code'));
+//     var encoding = res.headers['content-encoding'] || 'identity'
+//       , charset = getParams(res.headers['content-type'] || '').charset;
+//     res = maybeDecompress(res, encoding);
+//     res = maybeTranslate(res, charset);
+//     res.pipe(feedparser);
+//   });
+
+//   feedparser.on('error', done);
+//   feedparser.on('end', done);
+//   feedparser.on('readable', function() {
+//     var post;
+//     while (post = this.read()) {
+//       console.log(post);
+//     }
+//   });
+// }
+
+// function maybeDecompress (res, encoding) {
+//   var decompress;
+//   if (encoding.match(/\bdeflate\b/)) {
+//     decompress = zlib.createInflate();
+//   } else if (encoding.match(/\bgzip\b/)) {
+//     decompress = zlib.createGunzip();
+//   }
+//   return decompress ? res.pipe(decompress) : res;
+// }
+
+// function maybeTranslate (res, charset) {
+//   var iconv;
+//   // Use iconv if its not utf8 already.
+//   if (!iconv && charset && !/utf-*8/i.test(charset)) {
+//     try {
+//       iconv = new Iconv(charset, 'utf-8');
+//       console.log('Converting from charset %s to utf-8', charset);
+//       iconv.on('error', done);
+//       // If we're using iconv, stream will be the output of iconv
+//       // otherwise it will remain the output of request
+//       res = res.pipe(iconv);
+//     } catch(err) {
+//       res.emit('error', err);
+//     }
+//   }
+//   return res;
+// }
+
+// function getParams(str) {
+//   var params = str.split(';').reduce(function (params, param) {
+//     var parts = param.split('=').map(function (part) { return part.trim(); });
+//     if (parts.length === 2) {
+//       params[parts[0]] = parts[1];
+//     }
+//     return params;
+//   }, {});
+//   return params;
+// }
+
+// function done(err) {
+//   if (err) {
+//     console.log(err, err.stack);
+//     return process.exit(1);
+//   }
+//   server.close();
+//   process.exit();
+// }
+
+// // Don't worry about this. It's just a localhost file server so you can be
+// // certain the "remote" feed is available when you run this example.
+// var server = require('http').createServer(function (req, res) {
+//   var stream = require('fs').createReadStream(require('path').resolve(__dirname, '../test/feeds' + req.url));
+//   res.setHeader('Content-Type', 'text/xml; charset=Windows-1251');
+//   res.setHeader('Content-Encoding', 'gzip');
+//   stream.pipe(res);
+// });
+// server.listen(0, function () {
+//   fetch('http://localhost:' + this.address().port + '/compressed.xml');
+// });
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+const mongoose = __webpack_require__(3),
       Schema = mongoose.Schema;
 
 const INewsArticleSchema = new Schema();
@@ -631,12 +806,12 @@ INewsArticleSchema.add({
 module.exports = mongoose.model('INewsArticle', INewsArticleSchema);
 
 /***/ },
-/* 17 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
-const mongoose = __webpack_require__(2),
+const mongoose = __webpack_require__(3),
       Schema = mongoose.Schema,
-      INewsArticle = __webpack_require__(16);
+      INewsArticle = __webpack_require__(18);
 
 const INewsCategorySchema = new Schema({
   Category: { type: String, required: true, trim: true },
@@ -647,25 +822,30 @@ const INewsCategorySchema = new Schema({
 module.exports = mongoose.model('INewsCategory', INewsCategorySchema, 'INewsCategories');
 
 /***/ },
-/* 18 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(__dirname) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_express___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_express__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_path__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_path__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_path___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_path__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_body_parser__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_body_parser__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_body_parser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_body_parser__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_http__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_http__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_http___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_http__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_os__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_os__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_os___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_os__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_cookie_parser__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_cookie_parser__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_cookie_parser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_cookie_parser__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__swagger__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__swagger__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__logger__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__lib_database_mongoDB__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__lib_database_mongoDB__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__lib_feedparser_feedParser__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_bluebird__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_bluebird___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_bluebird__);
+
+
 
 
 
@@ -690,11 +870,12 @@ class ExpressServer {
 
     this.initCustomMiddleware();
     this.initDataBase();
+    this.initFeedParser();
   }
 
   initCustomMiddleware() {
     if (process.platform === 'win32') {
-      __webpack_require__(29).createInterface({
+      __webpack_require__(31).createInterface({
         input: process.stdin,
         output: process.stdout
       }).on('SIGINT', () => {
@@ -710,15 +891,41 @@ class ExpressServer {
   }
 
   initDataBase() {
-    //if (process.env.NODE_ENV === 'development') {
-    __WEBPACK_IMPORTED_MODULE_8__lib_database_mongoDB__["a" /* default */].open(err => {
-      if (err) {
-        process.exit(1);
+    if (false) {
+      let connectionString = "mongodb://localhost/NewsGaloreManager";
+      Database.open(connectionString, err => {
+        if (err) {
+          process.exit(1);
+        }
+      });
+    } else {
+      //Here we will connect to DinomoDB or S3 from Amazon Web Services
+      let connectionString = "mongodb://Cesar:CesarWhatley@cluster0-shard-00-00-mk80y.mongodb.net:27017,cluster0-shard-00-01-mk80y.mongodb.net:27017,cluster0-shard-00-02-mk80y.mongodb.net:27017/NewsGaloreManager?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin";
+      __WEBPACK_IMPORTED_MODULE_8__lib_database_mongoDB__["a" /* default */].open(connectionString, err => {
+        if (err) {
+          process.exit(1);
+        }
+      });
+    }
+  }
+
+  initFeedParser() {
+    var capi = ["http://feeds.feedburner.com/WiiUDaily", "http://feeds.feedburner.com/Co-optimus", "http://feeds.feedburner.com/makeuseof", "http://feeds.feedblitz.com/Gizmag", "http://feeds.feedburner.com/ubergizmo", //News
+    "http://feeds.mashable.com/Mashable", //News
+    "http://feeds.feedburner.com/WallStCheatSheetCore", "http://feeds.feedburner.com/coolsmartphone/uJxV", //Tech
+    "http://feeds.feedburner.com/coolsmartphone/uJxV", //Tech
+    "http://feeds.feedburner.com/TheBoyGeniusReport" //Tech
+    ];
+
+    __WEBPACK_IMPORTED_MODULE_10_bluebird___default.a.map(capi, url => __WEBPACK_IMPORTED_MODULE_9__lib_feedparser_feedParser__["a" /* default */].fetch(url), { concurrency: 10 }) // note that concurrency limit
+    .then(feeds => {
+      // do something with your feeds...
+      for (let i = 0; i < feeds.length; i++) {
+        console.log('***********************');
+        console.log(feeds[i].url);
+        //console.log(feeds[i].records[0]);
       }
     });
-    //} else {
-    //Here we will connect to DinomoDB or S3 from Amazon Web Services
-    //}
   }
 
   router(routes) {
@@ -734,16 +941,16 @@ class ExpressServer {
 }
 /* harmony export (immutable) */ exports["a"] = ExpressServer;
 
-/* WEBPACK VAR INJECTION */}.call(exports, "server/common"))
+/* WEBPACK VAR INJECTION */}.call(exports, "server\\common"))
 
 /***/ },
-/* 19 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(__dirname) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_swagger_express_middleware__ = __webpack_require__(30);
+/* WEBPACK VAR INJECTION */(function(__dirname) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_swagger_express_middleware__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_swagger_express_middleware___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_swagger_express_middleware__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_path__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_path__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_path___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_path__);
 
 
@@ -790,16 +997,16 @@ class ExpressServer {
     routes(app);
   });
 };
-/* WEBPACK VAR INJECTION */}.call(exports, "server/common/swagger"))
+/* WEBPACK VAR INJECTION */}.call(exports, "server\\common\\swagger"))
 
 /***/ },
-/* 20 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_contact_router__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api_examples_router__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_newsGalore_router__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_contact_router__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__api_examples_router__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_newsGalore_router__ = __webpack_require__(13);
 /* harmony export (immutable) */ exports["a"] = routes;
 
 
@@ -834,70 +1041,76 @@ function routes(app) {
 };
 
 /***/ },
-/* 21 */
-/***/ function(module, exports) {
-
-module.exports = require("bluebird");
-
-/***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports) {
 
 module.exports = require("body-parser");
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports) {
 
 module.exports = require("cookie-parser");
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports) {
 
 module.exports = require("dotenv");
 
 /***/ },
-/* 25 */
-/***/ function(module, exports) {
-
-module.exports = require("http");
-
-/***/ },
 /* 26 */
 /***/ function(module, exports) {
 
-module.exports = require("nodemailer");
+module.exports = require("feedparser");
 
 /***/ },
 /* 27 */
 /***/ function(module, exports) {
 
-module.exports = require("os");
+module.exports = require("http");
 
 /***/ },
 /* 28 */
 /***/ function(module, exports) {
 
-module.exports = require("pino");
+module.exports = require("nodemailer");
 
 /***/ },
 /* 29 */
 /***/ function(module, exports) {
 
-module.exports = require("readline");
+module.exports = require("os");
 
 /***/ },
 /* 30 */
 /***/ function(module, exports) {
 
-module.exports = require("swagger-express-middleware");
+module.exports = require("pino");
 
 /***/ },
 /* 31 */
+/***/ function(module, exports) {
+
+module.exports = require("readline");
+
+/***/ },
+/* 32 */
+/***/ function(module, exports) {
+
+module.exports = require("request");
+
+/***/ },
+/* 33 */
+/***/ function(module, exports) {
+
+module.exports = require("swagger-express-middleware");
+
+/***/ },
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(4);
+module.exports = __webpack_require__(5);
 
 
 /***/ }

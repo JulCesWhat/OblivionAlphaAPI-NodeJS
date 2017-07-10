@@ -14,9 +14,11 @@
     "cookie-parser": "^1.4.3",
     "dotenv": "^2.0.0",
     "express": "^4.15.3",
+    "feedparser": "^2.2.1",
     "mongoose": "^4.10.7",
     "nodemailer": "^4.0.1",
     "pino": "^4.6.0",
+    "request": "^2.81.0",
     "source-map-support": "^0.4.12",
     "swagger-express-middleware": "^1.0.0-alpha.12"
   },
