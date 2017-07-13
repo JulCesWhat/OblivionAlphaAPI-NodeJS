@@ -1,6 +1,6 @@
 
 
-import FeedParser from 'feedparser';
+import ParserFeed from 'feedparser';
 //import requet from 'request';
 
 var request = require('request');
@@ -9,6 +9,10 @@ var request = require('request');
 //  , Iconv = require('iconv').Iconv
 //  , zlib = require('zlib');
 import Promise from 'bluebird';
+import NewsGaloreService from './../../../api/newsGalore/services/newsGalore.service';
+
+var INewsCategory = require('./../models/INewsCategory');
+var INewsArticle = require('./../models/INewsArticle');
 
 
 export class Feedparser {
@@ -20,7 +24,7 @@ export class Feedparser {
             if (!url) { return reject(new Error(`Bad URL (url: ${url}`)); }
 
             const
-            feedparser = new FeedParser(),
+            feedparser = new ParserFeed(),
             items     = [];
 
             feedparser.on('error', (e) => {
@@ -56,6 +60,19 @@ export class Feedparser {
             });
         });
     };
+
+    RSSLoadDB(feedsData) {
+        for (let i = 0; i < feedsData.length; i++) {
+
+            for (let e = 0; e < feedsData[i].records.length; e++) {
+
+                if (feedsData[i].records[e].summary) {
+                    console.log(feedsData[i].records[e].categories);
+                }
+            }
+            
+        }
+    }
 }
 
 export default new Feedparser();

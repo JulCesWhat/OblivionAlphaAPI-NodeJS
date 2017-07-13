@@ -66,6 +66,7 @@ export default class ExpressServer {
 
   initFeedParser() {
     var capi = [
+      "http://feeds.feedburner.com/breitbart",
       "http://feeds.feedburner.com/WiiUDaily",
       "http://feeds.feedburner.com/Co-optimus",
       "http://feeds.feedburner.com/makeuseof",
@@ -81,12 +82,8 @@ export default class ExpressServer {
 
     Promise.map(capi, (url) => Feedparser.fetch(url), {concurrency: 10}) // note that concurrency limit
     .then((feeds) => {
-    // do something with your feeds...
-        for(let i = 0; i < feeds.length; i++) {
-          console.log('***********************')
-          console.log(feeds[i].url);
-          //console.log(feeds[i].records[0]);
-        }
+        // do something with your feeds...
+        Feedparser.RSSLoadDB(feeds);
     });
   }
 
